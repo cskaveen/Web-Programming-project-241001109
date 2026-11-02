@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Countdown Timer &amp; Stopwatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>Welcome to Countdown Timer &amp; Stopwatch</h1>
+    <p class="tagline">"Every second counts."</p>
+    <nav id="nav">
+      <button class="nav-btn active" data-view="home">Home</button>
+      <button class="nav-btn" data-view="countdown">Countdown Timer</button>
+      <button class="nav-btn" data-view="stopwatch">Stopwatch</button>
+      <button id="themeToggle" class="nav-btn" aria-label="Toggle theme">Dark Mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="view active">
+      <h2>Manage Your Time Efficiently</h2>
+      <p>A simple and accurate web tool with a countdown timer for tasks, study sessions and
+         cooking, and a stopwatch with lap recording for workouts and experiments.</p>
+      <div class="cards">
+        <div class="card" data-go="countdown"><h3>Countdown Timer</h3><p>Set hours, minutes and seconds and get an alert at zero.</p><button class="btn">Open Timer</button></div>
+        <div class="card" data-go="stopwatch"><h3>Stopwatch</h3><p>Measure elapsed time to the centisecond and record laps.</p><button class="btn">Open Stopwatch</button></div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section id="countdown" class="view">
+      <h2>Countdown Timer</h2>
+      <div class="panel">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 120 120" class="ring">
+            <circle class="ring-bg" cx="60" cy="60" r="54"/>
+            <circle id="ringFg" class="ring-fg" cx="60" cy="60" r="54"/>
+          </svg>
+          <div id="cdDisplay" class="display ring-text">00:05:00</div>
+        </div>
+        <div id="cdInputs" class="inputs">
+          <label>Hours<input type="number" id="cdH" min="0" max="99" value="0"></label>
+          <label>Minutes<input type="number" id="cdM" min="0" max="59" value="5"></label>
+          <label>Seconds<input type="number" id="cdS" min="0" max="59" value="0"></label>
+        </div>
+        <div class="presets">
+          <button class="chip" data-min="1">1 min</button>
+          <button class="chip" data-min="5">5 min</button>
+          <button class="chip" data-min="10">10 min</button>
+          <button class="chip" data-min="25">25 min</button>
+        </div>
+        <div class="controls">
+          <button id="cdStart" class="btn">Start</button>
+          <button id="cdPause" class="btn warn" disabled>Pause</button>
+          <button id="cdReset" class="btn gray">Reset</button>
+        </div>
+        <p id="cdMsg" class="msg"></p>
+      </div>
+    </section>
+
+    <!-- STOPWATCH -->
+    <section id="stopwatch" class="view">
+      <h2>Stopwatch</h2>
+      <div class="panel">
+        <div id="swDisplay" class="display big">00:00.00</div>
+        <div class="controls">
+          <button id="swStart" class="btn">Start</button>
+          <button id="swLap" class="btn warn" disabled>Lap</button>
+          <button id="swReset" class="btn gray">Reset</button>
+        </div>
+        <table id="lapTable" class="laps" hidden>
+          <thead><tr><th>Lap</th><th>Split Time</th><th>Total Time</th></tr></thead>
+          <tbody id="lapBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>Contact Us</strong><br>Address: 123, Nangathu City, Tamil Nadu, India<br>Email: contact@timertools.org</div>
+    <div>Connect With Us: Instagram | LinkedIn</div>
+    <div class="copy">&copy; 2026 Countdown Timer &amp; Stopwatch. All Rights Reserved.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
